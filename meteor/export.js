@@ -5,17 +5,34 @@
 /*global ObserverTransform:true*/
 
 // Meteor creates file-scope globals for exporting. These comments prevents a potential JSHint warning.
-PathObserver = window.PathObserver;
-delete window.PathObserver;
+if (Meteor.isClient) {
+  PathObserver = window.PathObserver;
+  delete window.PathObserver;
 
-ArrayObserver = window.ArrayObserver;
-delete window.ArrayObserver;
+  ArrayObserver = window.ArrayObserver;
+  delete window.ArrayObserver;
 
-ObjectObserver = window.ObjectObserver;
-delete window.ObjectObserver;
+  ObjectObserver = window.ObjectObserver;
+  delete window.ObjectObserver;
 
-CompoundObserver = window.CompoundObserver;
-delete window.CompoundObserver;
+  CompoundObserver = window.CompoundObserver;
+  delete window.CompoundObserver;
 
-ObserverTransform = window.ObserverTransform;
-delete window.ObserverTransform;
+  ObserverTransform = window.ObserverTransform;
+  delete window.ObserverTransform;
+} else {
+  PathObserver = global.PathObserver;
+  delete global.PathObserver;
+
+  ArrayObserver = global.ArrayObserver;
+  delete global.ArrayObserver;
+
+  ObjectObserver = global.ObjectObserver;
+  delete global.ObjectObserver;
+
+  CompoundObserver = global.CompoundObserver;
+  delete global.CompoundObserver;
+
+  ObserverTransform = global.ObserverTransform;
+  delete global.ObserverTransform;
+}

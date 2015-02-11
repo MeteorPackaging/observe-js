@@ -7,7 +7,7 @@ Tinytest.add('Observe.is', function (test) {
   function getValue(value) { return value * 2 };
   function setValue(value) { return value / 2 };
   var transform = new ObserverTransform(observer, getValue, setValue);
-  test.instanceOf(observer, ObserverTransform, 'Instantiation ObserverTransform OK');
+  test.instanceOf(transform, ObserverTransform, 'Instantiation ObserverTransform OK');
   
   var observer = new ArrayObserver([]);
   test.instanceOf(observer, ArrayObserver, 'Instantiation ArrayObserver OK');
